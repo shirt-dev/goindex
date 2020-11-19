@@ -670,13 +670,14 @@ function file(path) {
     return file_code(path);
   }
 
-  if ("|mp4|webm|avi|".indexOf(`|${ext}|`) >= 0) {
+  if ("|mp4|webm|".indexOf(`|${ext}|`) >= 0) {
     return file_video(path);
   }
 
+  /*
   if ("|mpg|mpeg|mkv|rm|rmvb|mov|wmv|asf|ts|flv|".indexOf(`|${ext}|`) >= 0) {
     return file_video(path);
-  }
+  }*/
 
   if ("|mp3|flac|wav|ogg|m4a|".indexOf(`|${ext}|`) >= 0) {
     return file_audio(path);
