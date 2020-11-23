@@ -598,7 +598,7 @@ function onSearchResultItemClick(a_ele) {
   var me = $(a_ele);
   var can_preview = me.hasClass('view');
   var cur = window.current_drive_order;
-  var dialog = mdui.dialog({
+  /*var dialog = mdui.dialog({
     title: '',
     content: '<div class="mdui-text-center mdui-typo-title mdui-m-b-1">正在获取目标路径...</div><div class="mdui-spinner mdui-spinner-colorful mdui-center"></div>',
     // content: '<div class="mdui-spinner mdui-spinner-colorful mdui-center"></div>',
@@ -607,12 +607,14 @@ function onSearchResultItemClick(a_ele) {
     closeOnEsc: true
   });
   mdui.updateSpinners();
-
+*/
   // 请求获取路径
   $.post(`/${cur}:id2path`, {id: a_ele.id}, function (data) {
     if (data) {
-      dialog.close();
+      //dialog.close();
       var href = `/${cur}:${data}${can_preview ? '?a=view' : ''}`;
+      window.location.href = href;
+      /*
       dialog = mdui.dialog({
         title: '<i class="mdui-icon material-icons">&#xe815;</i>目标路径',
         content: `<a href="${href}">${data}</a>`,
@@ -631,9 +633,10 @@ function onSearchResultItemClick(a_ele) {
           }
           , {text: '取消'}
         ]
-      });
+      });*/
       return;
     }
+    /*
     dialog.close();
     dialog = mdui.dialog({
       title: '<i class="mdui-icon material-icons">&#xe811;</i>获取目标路径失败',
@@ -645,6 +648,7 @@ function onSearchResultItemClick(a_ele) {
         {text: 'WTF ???'}
       ]
     });
+    */
   })
 }
 
