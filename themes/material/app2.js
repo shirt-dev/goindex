@@ -555,7 +555,7 @@ function append_search_result_to_list(files) {
     item['modifiedTime'] = utc2beijing(item['modifiedTime']);
     item['size'] = formatFileSize(item['size']);
     if (item['mimeType'] == 'application/vnd.google-apps.folder') {
-      html += `<li class="mdui-list-item mdui-ripple"><a id="${item['id']}" onclick="onSearchResultItemClick(this)" class="folder">
+      html += `<li class="mdui-list-item mdui-ripple"><a href="${p}" class="folder">
 	            <div class="mdui-col-xs-12 mdui-col-sm-7 mdui-text-truncate" title="${item.name}">
 	            <i class="mdui-icon material-icons">folder_open</i>
 	              ${item.name}
